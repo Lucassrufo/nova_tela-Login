@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/style.css">
+    <script src="https://kit.fontawesome.com/9a1b8a858d.js" crossorigin="
+    "></script>
+    <title>Login</title>
+</head>
+<body>
+    <div id="login-container">
+        <h1>Faça login para acessar</h1>
+        <form id="login-form">
+            <label for="email">E-Mail</label>
+            <input type="email" name="email" id="email" placeholder="Digite o seu e-mail" autocomplete="off">
+            <label for="password">Senha</label>
+            <input type="password" name="password" id="password" placeholder="Digite a sua senha">
+            <input type="submit" value="login">
+        </form>
+
+        
+        <div id="social-container">
+        <p>Ou entre pelas suas redes sociais</p>
+        <i class="fa-brands fa-facebook-f"></i>
+        <i class="fa-brands fa-linkedin"></i>
+        <i class="fa-brands fa-whatsapp"></i>
+        </div>
+        
+        <div id="register-container">
+            <p>Ainda não tem uma conta?</p>
+            <button id="register-link">Registrar</button>
+        </div>
+    </div>
+
+    <div id="register-modal" style="display: none;">
+        <h1>Registro</h1>
+        <form id="register-form">
+            <label for="new-email">E-Mail</label>
+            <input type="email" name="new-email" id="new-email" placeholder="Digite o seu e-mail" autocomplete="off">
+            <label for="new-password">Senha</label>
+            <input type="password" name="new-password" id="new-password" placeholder="Digite a sua senha">
+            <input type="submit" value="Registrar">
+        </form>
+        
+        <div id="social-container">
+            <p>Ou entre pelas suas redes sociais</p>
+            <i class="fa-brands fa-facebook-f"></i>
+            <i class="fa-brands fa-linkedin"></i>
+            <i class="fa-brands fa-whatsapp"></i>
+            </div>
+            
+
+    </div>
+
+    <script>
+        // Função para exibir o formulário de registro e esconder o formulário de login
+        function showRegisterForm() {
+            document.getElementById('login-container').style.display = 'none';
+            document.getElementById('register-modal').style.display = 'block';
+        }
+
+        // Função para exibir o formulário de login e esconder o formulário de registro
+        function showLoginForm() {
+            document.getElementById('register-modal').style.display = 'none';
+            document.getElementById('login-container').style.display = 'block';
+        }
+
+        // Evento de clique no botão de registro
+        document.getElementById('register-link').addEventListener('click', showRegisterForm);
+
+        // Evento de submissão do formulário de registro
+        document.getElementById('register-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevenir o envio do formulário
+
+            // Aqui você pode adicionar a lógica para o registro do usuário
+
+            // Após o registro, exibir o formulário de login novamente
+            showLoginForm();
+        });
+
+        // Evento de submissão do formulário de login
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevenir o envio do formulário
+
+            // Aqui você pode adicionar a lógica para a autenticação do usuário
+
+            // Após o login bem-sucedido, redirecione o usuário para a página principal
+            window.location.href = 'PRINCIPAL/index.html';
+        });
+    </script>
+</body>
+</html>
